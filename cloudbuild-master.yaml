@@ -2,12 +2,12 @@ steps:
 - name: 'gcr.io/kaniko-project/executor:latest'
   id: build
   args:
-  - --destination=gcr.io/$PROJECT_ID/IMAGE:latest
+  - --destination=gcr.io/$PROJECT_ID/$_IMAGE_NAME:latest
   - --cache=true
   - --cache-ttl=48h
   - --context=./
 timeout: 3600s
 substitutions:
-  _IMAGE_NAME: test-image
+  _IMAGE_NAME: lastversion
 options:
   dynamic_substitutions: true
